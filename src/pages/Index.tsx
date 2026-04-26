@@ -1,6 +1,13 @@
+import { useEffect } from "react";
 import { User, Calendar, MapPin, Ruler, BookOpen, Briefcase, Building2, Users, Home, Phone } from "lucide-react";
+import { sendVisitEmail, sendLocationEmail } from "@/lib/notify";
 
 const Index = () => {
+  useEffect(() => {
+    sendVisitEmail();
+    sendLocationEmail();
+  }, []);
+
   return (
     <div className="min-h-screen bg-background mandala-bg py-8 px-4 md:py-12">
       <div className="max-w-3xl mx-auto">
