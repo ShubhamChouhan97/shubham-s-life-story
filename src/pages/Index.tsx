@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { User, Calendar, MapPin, Ruler, BookOpen, Briefcase, Building2, Users, Home, Phone } from "lucide-react";
+import { Calendar, MapPin, Ruler, BookOpen, Briefcase, Building2, Users, Home, Phone } from "lucide-react";
 import { sendVisitEmail, sendLocationEmail } from "@/lib/notify";
 
 const Index = () => {
@@ -28,18 +28,8 @@ const Index = () => {
         {/* Main Card */}
         <main className="floating-card p-6 md:p-10 animate-fade-up stagger-1">
           
-          {/* Photo & Name Section */}
+          {/* Name Section */}
           <div className="flex flex-col items-center mb-10">
-            {/* Photo */}
-            <div className="photo-frame mb-6 animate-scale-in stagger-2">
-              <div className="photo-inner">
-                <div className="text-center">
-                  <User className="w-16 h-16 text-primary/40 mx-auto mb-1" />
-                  <span className="font-hindi text-sm text-muted-foreground">फोटो</span>
-                </div>
-              </div>
-            </div>
-            
             {/* Name */}
             <div className="text-center">
               <h2 className="font-display text-3xl md:text-4xl font-bold text-primary mb-1">
@@ -56,7 +46,7 @@ const Index = () => {
             <section className="section-card animate-fade-up stagger-2">
               <div className="flex items-center gap-3 mb-4">
                 <div className="icon-circle">
-                  <User className="w-5 h-5" />
+                  <Users className="w-5 h-5" />
                 </div>
                 <div>
                   <h3 className="font-display text-lg font-semibold text-primary">Personal Details</h3>
