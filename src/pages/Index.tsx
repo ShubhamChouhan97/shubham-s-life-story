@@ -32,9 +32,6 @@ const Index = () => {
 
         {/* Header */}
         <header className="text-center mb-20 animate-fade-up stagger-1">
-          <p className="text-[10px] uppercase tracking-[0.5em] text-[hsl(var(--ink-muted))] mb-6">
-            Vivah · Parichay · Patra
-          </p>
           <h1 className="font-display text-5xl md:text-7xl leading-[1.05] text-[hsl(var(--ink))] mb-4">
             Shubham Singh
             <br />
