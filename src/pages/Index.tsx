@@ -46,7 +46,7 @@ const Index = () => {
             <section className="section-card animate-fade-up stagger-2">
               <div className="flex items-center gap-3 mb-4">
                 <div className="icon-circle">
-                  <User className="w-5 h-5" />
+                  <Users className="w-5 h-5" />
                 </div>
                 <div>
                   <h3 className="font-display text-lg font-semibold text-primary">Personal Details</h3>
