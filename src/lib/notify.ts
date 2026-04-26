@@ -2,9 +2,9 @@ import emailjs from "@emailjs/browser";
 
 // TODO: Replace these dummy values with your real EmailJS credentials
 export const EMAILJS_CONFIG = {
-  SERVICE_ID: "YOUR_SERVICE_ID",
-  TEMPLATE_ID: "YOUR_TEMPLATE_ID",
-  PUBLIC_KEY: "YOUR_PUBLIC_KEY",
+  SERVICE_ID: "service_yhpa91x",
+  TEMPLATE_ID: "template_s71j8d7",
+  PUBLIC_KEY: "t_7GFFUEQgfM5c5kj",
 };
 
 let initialized = false;
