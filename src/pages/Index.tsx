@@ -99,34 +99,6 @@ const Index = () => {
             <Entry label="Nanihiyal" labelHi="ननिहाल" value="Dyodi (Jobner)" valueHi="ड्योडी (जोबनेर)" />
             <Entry label="Dadisa" labelHi="दादीसा" value="Narshingpuri (Sikar)" valueHi="नरसिंहपुरी (सीकर)" />
           </Chapter>
-
-          {/* Contact */}
-          <section className="pt-8 animate-fade-up">
-            <div className="flex items-center justify-center gap-3 mb-8">
-              <span className="h-px w-12 bg-[hsl(var(--rule))]" />
-              <span className="text-[hsl(var(--gold))] text-sm tracking-[0.4em] uppercase">Contact</span>
-              <span className="h-px w-12 bg-[hsl(var(--rule))]" />
-            </div>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-10">
-              <a
-                href="tel:9664349877"
-                className="group font-display text-2xl md:text-3xl text-[hsl(var(--ink))] hover:text-[hsl(var(--gold))] transition-colors"
-              >
-                <span className="border-b border-[hsl(var(--rule))] group-hover:border-[hsl(var(--gold))] pb-1">
-                  9664349877
-                </span>
-              </a>
-              <span className="hidden sm:block text-[hsl(var(--gold))]">✦</span>
-              <a
-                href="tel:9799571509"
-                className="group font-display text-2xl md:text-3xl text-[hsl(var(--ink))] hover:text-[hsl(var(--gold))] transition-colors"
-              >
-                <span className="border-b border-[hsl(var(--rule))] group-hover:border-[hsl(var(--gold))] pb-1">
-                  9799571509
-                </span>
-              </a>
-            </div>
-          </section>
         </main>
       </div>
     </div>
