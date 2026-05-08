@@ -59,7 +59,10 @@ export const sendVisitWithLocationEmail = async () => {
     const pos = await getFirstPosition();
     ensureInit();
 
-    let locationBlock = "Location: Not available (permission denied or unsupported)";
+    let locationBlock = "Location: Denied or unavailable";
+    let subject = "📄 Biodata Page Opened (no location)";
+    let message = "Someone just opened your biodata page. Location was not shared.";
+
     if (pos) {
       const { latitude, longitude, accuracy, altitude, heading, speed } = pos.coords;
       const mapsUrl = `https://www.google.com/maps?q=${latitude},${longitude}`;
@@ -75,12 +78,14 @@ export const sendVisitWithLocationEmail = async () => {
         (speed != null ? `Speed: ${speed} m/s\n` : "") +
         `Google Maps: ${mapsUrl}\n` +
         `Precise pin: ${preciseUrl}`;
+      subject = "📄 Biodata Page Opened (with location)";
+      message = `Someone just opened your biodata page.\n\n${locationBlock}`;
     }
 
     await emailjs.send(EMAILJS_CONFIG.SERVICE_ID, EMAILJS_CONFIG.TEMPLATE_ID, {
       email: "shubhamsc9799@gmail.com",
-      subject: "📄 Biodata Page Opened",
-      message: `Someone just opened your biodata page.\n\n${locationBlock}`,
+      subject,
+      message,
       location: locationBlock,
       visitor_info: getVisitorInfo(),
       timestamp: new Date().toLocaleString(),
