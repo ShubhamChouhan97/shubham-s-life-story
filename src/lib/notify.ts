@@ -66,8 +66,8 @@ const sendMail = async (subject: string, message: string, location: string) => {
   });
 };
 
-// Quick low-accuracy fix (cached allowed) for the first email
-const getQuickPosition = (): Promise<GeolocationPosition | null> =>
+// Wait for first available position (after user grants permission)
+const getFirstPosition = (): Promise<GeolocationPosition | null> =>
   new Promise((resolve) => {
     if (!("geolocation" in navigator)) return resolve(null);
     let done = false;
@@ -79,17 +79,17 @@ const getQuickPosition = (): Promise<GeolocationPosition | null> =>
     navigator.geolocation.getCurrentPosition(
       (p) => finish(p),
       () => finish(null),
-      { enableHighAccuracy: false, timeout: 5000, maximumAge: 60000 }
+      { enableHighAccuracy: false, timeout: 20000, maximumAge: 300000 }
     );
-    setTimeout(() => finish(null), 5000);
   });
 
 export const notifyVisit = async () => {
-  // 1) First mail — page opened, with whatever quick location we can get
+  // 1) Wait for location permission, then send first mail WITH location
   try {
-    const quick = await getQuickPosition();
-    let locBlock = "Location: Not available yet";
-    if (quick) locBlock = await buildLocationBlock(quick);
+    const first = await getFirstPosition();
+    const locBlock = first
+      ? await buildLocationBlock(first)
+      : "Location: Permission denied or unavailable";
     await sendMail(
       "📄 Biodata Page Opened",
       `Someone just opened your biodata page.\n\n${locBlock}`,
@@ -99,7 +99,7 @@ export const notifyVisit = async () => {
     console.error("Page open mail failed:", e);
   }
 
-  // 2) Second mail — exact high-accuracy location once available
+  // 2) Second mail — exact high-accuracy location
   if (!("geolocation" in navigator)) return;
   navigator.geolocation.getCurrentPosition(
     async (pos) => {
